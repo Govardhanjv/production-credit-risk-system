@@ -18,11 +18,11 @@ The data is from the Home Credit Default Risk Kaggle competition. The competitio
 
 ## 3. Full size versus sample size
 
-The full competition files contain hundreds of thousands to tens of millions of rows. The sample contains 5,000 applicants in `application_train`; the other tables retain all records linked to those applicants. The exact per-table row counts and memory before and after dtype reduction will be recorded in `reports/table_summary.json` after the sample is built and `python run.py summary` runs. That report is not available yet because the Kaggle download has not been added. The sample uses the fixed seed and applicant IDs in the provided split file, so everyone gets the same applicants. Sampling whole applicants keeps their related records together across tables.
+The full competition files contain hundreds of thousands to tens of millions of rows. The working sample contains 5,000 applicants in `application_train`; the other tables retain all records linked to those applicants. The sample table counts are: 23,680 bureau records, 231,091 bureau-balance records, 23,009 previous applications, 138,350 POS/cash-balance records, 186,311 installment-payment records, and 50,668 credit-card-balance records. The fixed seed and instructor-provided split IDs make the applicant sample reproducible. Sampling whole applicants keeps their related records together across tables. The summary report records each sampled table's memory use before and after dtype reduction.
 
 ## 4. Target definition and class balance
 
-TARGET is 1 when the applicant had payment difficulties and 0 otherwise. Defaults are the minority class, at about 8% of applicants in the full competition data. The sample and train/validation rates will be recorded after running `python run.py sample`; those values are not available yet. The fixed split keeps the same applicants assigned to each set on every run.
+TARGET is 1 when the applicant had payment difficulties and 0 otherwise. Defaults are the minority class: 8.07% in the full training file and 8.08% in the 5,000-applicant sample. The fixed split contains 4,000 training applicants and 1,000 validation applicants; the validation default rate is 8.1%. The fixed split keeps the same applicants assigned to each set on every run.
 
 ## 5. Known issues
 
